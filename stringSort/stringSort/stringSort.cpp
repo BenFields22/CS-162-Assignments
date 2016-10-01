@@ -11,17 +11,13 @@
 #include<iostream>
 #include <string>
 #include <cctype>
-#include <cstring>
-
 
 //returns 1 if str1 < str2, 0 if equal and -1 if str1 > str2
-int caseInsensitiveStringCompare(std::string str1, std::string str2)
+int caseInsensitiveStringCompare(const std::string &str1, const std::string &str2)
 {
-	//std::cout << "Entered case insensitive string compare\n" << std::endl;
-	//std::cout << "Testing strings " << str1 << " and " << str2 <<"\n"<< std::endl;
 	char cstr1[255];
 	char cstr2[255];
-	if (str1.length() > 255 || str2.length() > 255)
+	if (str1.length() > 254 || str2.length() > 254)
 	{
 		std::cout << "Buffer overflow error" << std::endl;
 		exit(EXIT_FAILURE);
@@ -36,13 +32,7 @@ int caseInsensitiveStringCompare(std::string str1, std::string str2)
 	{
 		cstr2[i] = toupper(cstr2[i]);
 	}
-
-	//std::cout<<"After conversion, testing strings " << cstr1 << " and " << cstr2 << "\n" << std::endl;
-	
-	int ans = strcmp(cstr1, cstr2);
-	//std::cout << "the value returned by the compare was: " << ans << std::endl;
-
-	return ans;
+	return strcmp(cstr1, cstr2);
 }
 
 void stringSort(std::string array[], int numStrs)
@@ -79,18 +69,13 @@ void printArray(std::string array[], int size)
 int main(int argc, char* argv[])
 {
 	std::cout << "\n\nCheckpoint 1\n\n" << std::endl;
-
 	std::string testString[8] = { "ben","Joe","adam","Dog","CAT","YOU","XAVIER","JOHN" };
 	printArray(testString, 8);
-	
 	std::cout << "\n\nCheckpoint 2\n\n" << std::endl;
 	stringSort(testString, 8);
 	std::cout << "\n\nCheckpoint 3\n\n" << std::endl;
 	std::cout << "Back in main after string sort" << std::endl;
-
 	printArray(testString, 8);
-	
-
 	system("PAUSE");
 	return 0;
 }
