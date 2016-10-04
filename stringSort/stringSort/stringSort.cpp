@@ -11,7 +11,8 @@
 #include<iostream>
 #include <string>
 #include <cctype>
-
+#include <cstring>
+#include <cstdlib>
 
 /*********************************************************************
 ** Description:function takes two c++ strings and compares them with 
@@ -127,6 +128,6 @@ int main(int argc, char* argv[])
 	//std::cout << "Back in main after string sort" << std::endl;//debug line
 
 	printArray(testString, 8);
-	system("PAUSE");
+	//system("PAUSE");
 	return 0;
 }

@@ -83,8 +83,18 @@ std::string decToBin(int num)
 	}
 	else
 	{
+	   	//create the string to contain the remainder
+	   	std::string remainder;
+
+		//assign the string a value of 1 or 0
+	   	if(num%2 == 1)
+		   remainder = "1";
+		else
+		   remainder = "0";
+
+
 		//recursive step called 
-		return decToBin(num/2) + std::to_string(num%2);
+		return decToBin(num/2) + remainder;
 	}
 }
 
@@ -118,6 +128,6 @@ int main(int argc, char* argv[])
 	std::cout << "String should be 10110111. Returned string: "<<convertedInteger <<"\n\n"<< std::endl;
 	std::cout << "Test 1: " << binToDec("1010") << std::endl;
 	std::cout << "Test 2: " << decToBin(2) << std::endl;
-	system("PAUSE");
+	//system("PAUSE");
 	return 0;
 }
